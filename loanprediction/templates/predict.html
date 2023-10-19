@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <!-- <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+<script defer src="https://pyscript.net/latest/pyscript.js"></script> -->
+  <title>Loan Prediction</title>
+  <style>
+        
+        body {
+      font-family: Arial, sans-serif;
+      background-color: red;
+    }
+
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #predictionResult {
+      margin-top: 20px;
+      text-align: center;
+      color: #333;
+      font-weight: bold;
+    }
+
+    select{
+      width: 100%;
+      padding: 10px;
+      background:#edf2ff;
+      border:none;
+    }
+    .popup{
+      width: 400px;
+      background: #fff;
+      border-radius: 6px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%,-50%) scale(0.1);
+      text-align: center;
+      padding: 0 30px 30px;
+      color: #333;
+      visibility: hidden;
+    }
+
+    .open-popup{
+      visibility: visible;
+      top: 50%;
+      transform: translate(-50%,-50%) scale(1);
+    }
+
+    .popup img{
+      width: 100px;
+      margin-top: -50px;
+      border-radius: 50px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    .popup h2{
+      font-size: 38px;
+      font-weight: 500;
+      margin: 30px 0 10px;
+    }
+    .popup button{
+      width: 100%;
+      margin-top: 50px;
+      padding: 10px 0;
+      background: #6fd649;
+      color: #fff;
+      border: 0;
+      outline: none;
+      font-size: 18px;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .popups{
+      width: 400px;
+      background: #fff;
+      border-radius: 6px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%,-50%) scale(0.1);
+      text-align: center;
+      padding: 0 30px 30px;
+      color: #333;
+      visibility: hidden;
+    }
+
+    .open-popups{
+      visibility: visible;
+      top: 50%;
+      transform: translate(-50%,-50%) scale(1);
+    }
+    
+    .popups img{
+      width: 100px;
+      margin-top: -50px;
+      border-radius: 50px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    .popups h2{
+      font-size: 38px;
+      font-weight: 500;
+      margin: 30px 0 10px;
+    }
+    .popups button{
+      width: 100%;
+      margin-top: 50px;
+      padding: 10px 0;
+      background: #6fd649;
+      color: #fff;
+      border: 0;
+      outline: none;
+      font-size: 18px;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    }
+
+      
+  </style>
+</head>
+<body>
+  <py-script src="encrptdata2.py">
+
+  </py-script>
+  <div class="container">
+    <h1>Loan Prediction</h1>
+
+    <form id="loanPredictionForm">
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" value="" required>
+        
+        <label for="age">Age:</label>
+
+        <input type="number" id="age" value="" required>
+
+        <label for="Gender">Gender:</label>
+        <select name="Gender" id="Gender" value="" required  >
+          <option selected>-- select gender --</option>
+            <option id="Male" value="Male">Male</option>
+            <option id="Female" value="Female">Female</option>
+        </select>
+
+        <label for="Married">Married:</label>
+        <select name="text" id="Married" value="" required>
+            <option selected>-- select Married status --</option>
+            <option id="Yes" value="Yes">Yes</option>
+            <option id="No" value="No">No</option>
+        </select>
+
+        <label for="education">Education:</label>
+        <select name="text" id="education" value="" required>
+          <option selected>-- select Education Status --</option>
+            <option id="Graduate" value="Graduate">Graduate</option>
+            <option id="Not Graduate" value="Not Graduate">Under Graduate</option>
+        </select>
+
+        <label for="self_employed">Self_employed:</label>
+        <select name="self_employed" id="Self_Employed" value="" required>
+          <option selected>-- select Employed status --</option>
+            <option id="Yes" value="Yes">Yes</option>
+            <option id="No" value="No">No</option>
+        </select>
+
+        <label for="Property_Area">Property_Area:</label>
+        <select name="Property_Area" id="Property_Area" value="" required>
+          <option selected>-- select Area --</option>
+            <option id="Urban" value="Urban">Urban</option>
+            <option id="Rural" value="Rural">Rural</option>
+            <option id="Semiurban" value="Semiurban">Semi Urban</option>
+        </select>
+
+        <label for="Dependents">Dependents:</label>
+        <select name="Dependents" id="Dependents" value="" required>
+          <option selected>-- select Dependents --</option>
+            <option id="1" value="1">1</option>
+            <option id="2" value="2">2</option>
+            <option id="3" value="3">3</option>
+            <option id="3+" value="3+">4+</option>
+        </select>
+
+        <label for="Loan_amount_term">Loan_Amount_Term:</label>
+        <input type="number" id="Loan_amount_term" name="Loan_amount_term" value="" required>
+
+      <label for="income">Appilicant Income:</label>
+      <input type="number" id="income" name="income" value="" required>
+
+      <label for="income">Co-Appilicant Income:</label>
+      <input type="number" id="co_income" name="income" value="" required>
+
+      <label for="creditScore">Credit Score:</label>
+      <input type="number" id="creditScore" name="creditScore" value="" required>
+
+      <label for="loanAmount">Loan Amount:</label>
+      <input type="number" id="loanAmount" name="loanAmount" value="" required>
+
+      <button type="submit" id="predict" name="predict" class="btn" onclick="myopen()">Predict</button>
+    </form>
+    <div class="popup" id="popup">
+      <img src="404-tick.png">
+      <h2>Congratulations!</h2>
+      <p>Your loan has been approved successfully!</p>
+      <button type="button" onclick="myclose()">OK</button>
+    </div>
+
+    <div class="popups" id="popups">
+      <img src="not.png">
+      <h2>Sorry!</h2>
+      <p>Unfortunately,You were failed to fulfill the criteria that must for loan approval at our bank!</p>
+      <button type="button" onclick="myclose()">OK</button>
+    </div>
+
+    <script src="loan.js"></script>
+
+    <div id="predictionResult"></div>
+  </div>
+</body>
+</html>

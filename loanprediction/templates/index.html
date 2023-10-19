@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+   <!-- <link rel="stylesheet" href="styles.css">-->
+<head>
+  <title>Loan Prediction</title>
+  <style>
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #predictionResult {
+      margin-top: 20px;
+      text-align: center;
+      color: #333;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Loan Prediction</h1>
+
+    <form id="loanPredictionForm" method="POST" action="find">
+      {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="age">Age:</label>
+
+        <input type="number" id="age" name="age" required>
+
+        <label for="dep">NO of Dependents:</label>
+        <input type="number" id="dep" name="dep" required>
+
+        <label for="gender">Gender:</label>
+        <select  id="gender" name="gender" required style="padding: 10px; background:#edf2ff; border:none;">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <label for="married">Married:</label>
+        <select  id="married" name="married" style="padding: 10px; background:#edf2ff; border:none;">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="education">Education:</label>
+        <select  id="education" name="education" required style="padding: 10px; background:#edf2ff; border:none;">
+            <option value="graduate">Graduate</option>
+            <option value="under graduate">UnderGraduate</option>
+        </select>
+
+        <label for="self_employed">Self_employed:</label>
+        <select id="self_employed" name="self_employed" style="padding: 10px; background:#edf2ff; border:none;">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+      </select>
+      
+
+        <label for="Property_Area">Property_Area:</label>
+        <select  id="Property_Area" name="property_Area" style="padding: 10px; background:#edf2ff; border:none;">
+            <option value="urban">Urban</option>
+            <option value="semi_urban">SemiUrban</option>
+            <option value="rural">Rural</option>
+
+        </select>
+
+        <label for="loan_amount_term">Loan_Amount_Term:</label>
+        <input type="number" id="loan_amount_term" name="loanamountterm">
+
+      <label for="income">Annual Income:</label>
+      <input type="number" id="income" name="annualincome" required>
+      <label for="cincome">CoApplicant Income:</label>
+      <input type="number" id="cincome" name="cincome" required>
+
+      <label for="creditScore">Credit History:</label>
+      <input type="number" id="creditScore" name="credithis" required>
+
+      <label for="loanAmount">Loan Amount:</label>
+      <input type="number" id="loanAmount" name="loanamount">
+
+     <input type="submit" name="submit" value="predict"> <!-- Predict</button> -->
+    </form>
+
+    <div id="predictionResult"></div>
+  </div>
+</body>
+</html>
