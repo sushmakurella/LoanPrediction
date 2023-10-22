@@ -9,5 +9,8 @@ urlpatterns = [
     path('',views.main,name="main"),
     path('home',views.home,name="home"),
     path('find',views.find,name="find"),
+    path('about',views.about,name="about"),
+    path('contact',views.contact,name="contact"),
+    path('checkeligibility',views.checkeligibility,name="checkeligibility"),
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

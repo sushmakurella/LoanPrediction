@@ -46,7 +46,7 @@ def getKeys():
 # 		    pub_key=paillier.PaillierPublicKey(n=int(keys['public_key']['n']))
 # 		    priv_key=paillier.PaillierPrivateKey(pub_key,keys['private_key']['p'],keys['private_key']['q'])
 # 	return render(request, 'index.html')
-def find(request):
+'''def find(request):
 	if request.method == "POST":
 		name=request.POST['name']
 		age=request.POST['age']
@@ -61,6 +61,7 @@ def find(request):
 		v9=int(request.POST['loanamountterm'])
 		v10=int(request.POST['credithis'])
 		v11=request.POST['property_Area']
+		v12=0
 		v1= 0 if(v1=='Male') else 1
 		v2= 0 if(v2=='No') else 1
 		v4= 0 if(v4=='UNderGraduate') else 1
@@ -116,19 +117,66 @@ def find(request):
 		# print(lst)
 		# with open('logistic_regression_model.pkl', 'rb') as model_file:
 		# 	logmodel = pickle.load(model_file)
-		# pred=logmodel.predict(data)
-		#ans=(dt[0][0]*cof[0][0])+(dt[0][1]*cof[0][1])+(dt[0][2]*cof[0][2])+(dt[0][3]*cof[0][3])+(dt[0][4]*cof[0][4])+(dt[0][5]*cof[0][5])+(dt[0][6]*cof[0][6])+(dt[0][7]*cof[0][7])+(dt[0][8]*cof[0][8])+(dt[0][9]*cof[0][9])+(dt[0][10]*cof[0][10])+incp[0]
-		#res=priv_key.decrypt(int(ans))
+		# pred=logmodel.predict(dt)
+		# ans=(dt[0][0]*cof[0][0])+(dt[0][1]*cof[0][1])+(dt[0][2]*cof[0][2])+(dt[0][3]*cof[0][3])+(dt[0][4]*cof[0][4])+(dt[0][5]*cof[0][5])+(dt[0][6]*cof[0][6])+(dt[0][7]*cof[0][7])+(dt[0][8]*cof[0][8])+(dt[0][9]*cof[0][9])+(dt[0][10]*cof[0][10])+incp[0]
+		res=priv_key.decrypt(int(ans))
 		ans=(v1*cof[0][0])+(v2*cof[0][1])+(v3*cof[0][2])+(v4*cof[0][3])+(v5*cof[0][4])+(v6*cof[0][5])+(v7*cof[0][6])+(v8*cof[0][7])+(v9*cof[0][8])+(v10*cof[0][9])+(v11*cof[0][10])+incp[0]
 		expr=math.exp(-ans)
 		ans=1/(1+expr)
-		print(ans)
+		# print(ans)
 		# print(pred)
 		# if(pred[0]==1):
 		if(ans<=0.5):
 			return render(request, 'congrat.html')
+	return render(request, 'sorry.html')'''
+def find(request):
+	if request.method == "POST":
+		name=request.POST['name']
+		age=request.POST['age']
+		v1=request.POST['gender']
+		v2=request.POST['married']
+		v3=int(request.POST['dep'])
+		v4=request.POST['education']
+		v5=request.POST['self_employed']
+		v6=int(request.POST['annualincome'])
+		v7=int(request.POST['cincome'])
+		v8=int(request.POST['loanamount'])
+		v9=int(request.POST['loanamountterm'])
+		v10=int(request.POST['credithis'])
+		v11=request.POST['property_Area']
+		v12=0
+		v1= 0 if(v1=='Male') else 1
+		v2= 0 if(v2=='No') else 1
+		v4= 0 if(v4=='UNderGraduate') else 1
+		v5= 0 if(v5=='No') else 1
+		if(v11=='Urban'):
+			v11=1
+			v12=0
+		elif(v11=='Rural'):
+			v11=0
+			v12=0
+		else:
+			v11=0
+			v12=1
+		if(v3>3):
+			v3=4
+		with open('model.pkl', 'rb') as file:
+			logmodel = pickle.load(file)
+		lst=[v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11,v12]
+		dt=[]
+		dt.append(lst)
+		ans=logmodel.predict(dt)
+		print(ans)
+		if(ans==1):
+			return render(request, 'congrat.html')
 	return render(request, 'sorry.html')
 def main(request):
 	return render(request,'main.html')
+def about(request):
+	return render(request,'about.html')
+def contact(request):
+	return render(request,'contact.html')
+def checkeligibility(request):
+	return render(request,'loan.html')
 		
 		

@@ -1,0 +1,161 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet The Team</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+     * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    
+    background-color: #333;
+  }
+  .container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  h1 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+  }
+  .team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  .team-member {
+    width: 25%;
+    margin: 10px;
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+  }
+  .team-member img {
+    width: 60%;
+    border-radius: 50%;
+    padding-top: 5%;
+  }
+  .team-member h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .team-member p {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  .team-member .social-media {
+    margin-top: 10px;
+    border-radius: 0px 20px 20px 20px;
+  }
+  .team-member .social-media a {
+    margin: 0 5px;
+    font-size: 2
+    
+  }   
+  #n2{
+    margin-top: 40px;
+  }
+  #l1{
+    margin-top: 50px;
+  }
+  #L1img{
+    margin-top: 5px;
+  }
+  #P2{
+    margin-top: 32px;
+  }
+  #Q1,#L6{
+    margin-top: 20px;
+  }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="margin-bottom: 50px; padding-top:50px;">Our Team</h1>
+        <div class="team">
+            <div class="team-member">
+                <img src='{% static "images/5N2.jpg" %}' alt="Sushmadhi Lakshmi">
+                <h3>Sushma Kurella</h3>
+                <p> WebBackendDeveloper, MLEngineer, DataBaseArchitect, FullStackJAVADeveloper</p>
+                <div class="social-media" style="background-color: orange;" id="n2">
+                    <a href="https://www.instagram.com/sushma.9025/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/sushmadi-lakshmi-kurella-918bb325b/"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/sushmakurella"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/sushmakurella"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src='{% static "images/5P2.jpg" %}' alt="Swathi">
+                <h3>Swathi</h3>
+                <p>WebBackendDeveloper, MLEngineer, DataBaseArchitect, Programmer</p>
+                <div class="social-media" style="background-color: rgb(6, 243, 105);" id="P2">
+                    <a href="https://www.instagram.com/kiruukiran232/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/kiruukiran232/"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/kiruukiran232/"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/kiruukiran232/"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src='{% static "images/21A81A05L6.jpg" %}' alt="Ishwarya">
+                <h3>Ishwarya</h3>
+                <p>FullStackWebDeveloper, MLEngineer, DataBaseArchitect, Programmer</p>
+                <div class="social-media" style="background-color: rgb(102, 255, 0);" id="L6">
+                    <a href="https://www.instagram.com/kiruukiran232/"><i class="fab fa-instagram"> </i></a>
+                    <a href="https://www.instagram.com/kiruukiran232/"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/kiruukiran232/"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/kiruukiran232/"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src='{% static "images/5L1.jpg" %}' alt="Kiran Kumar" id="L1img">
+                <h3>Kiran Kumar</h3>
+                <p>FullStackWebDeveloper, MLEngineer, DataBaseArchitect, FullStackJAVADeveloper</p>
+                <div class="social-media" style="background-color: rgb(7, 246, 246);" id="l1">
+                    <a href="https://www.instagram.com/kiruukiran232/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/kiruukiran232/"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/kiruukiran232/"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/kiruukiran232/"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src='{% static "images/21A81A05Q1.jpg" %}' alt="Swathi">
+                <h3>Swathi</h3>
+                <p>WebBackendDeveloper, MLEngineer, DataBaseArchitect, PYTHONDeveloper</p>
+                <div class="social-media" style="background-color: rgb(182, 251, 8);" id="Q1">
+                    <a href="https://www.instagram.com/kiruukiran232/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/kiruukiran232/"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/kiruukiran232/"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/kiruukiran232/"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <p style="color: white;">we're proud to introduce 'Our Team'—a dynamic group of individuals passionate
+                about the fields of machine learning and web development. We believe that the true strength of our team lies
+                not only in our individual expertise but also in our seamless coordination and collaboration. With a
+                profound understanding of the latest advancements in machine learning and a mastery of web development
+                technologies, we work hand in hand, combining our skills to bring innovative solutions to life. Our team
+                embodies a culture of open communication and harmonious collaboration, which allows us to take your projects
+                to new heights. When you choose us, you're choosing a team that values teamwork, creativity, and excellence.
+                Together, we're shaping the future of technology through collective effort and expertise.</p>
+        </div>
+    </div>
+</body>
+
+</html>
