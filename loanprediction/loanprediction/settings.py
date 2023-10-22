@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-190$@@trs-cjf1_y*)m0+lvc5(3m0h0!oj56tenp2(!^&1+x@f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = ['secureloanprediction.onrender.com']
-ALLOWED_HOSTS=[]
+ALLOWED_HOSTS = ['secureloanprediction.onrender.com']
+#ALLOWED_HOSTS=[]
 
 # Application definition
 
